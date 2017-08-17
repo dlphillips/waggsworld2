@@ -13,33 +13,21 @@ var Main = React.createClass({
       // We can only render a single div. So we need to group everything inside of this main-container one
       <div className="main-container">
 
-
-
-        <nav className="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
+        <nav className="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar" style={{background: 'rgba(0, 0, 0, 0.7)'}}>
             <div className="container">
-                <a className="navbar-brand" href="#">WaggsWorld</a>
-                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
+            <span className="navbar-brand"><Link to="/" style={{color: '#e8d071', fontWeight: 'bold'}}>WaggsWorld</Link></span>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav mr-auto">
-                      <li className="nav-item nav-link"><Link to="/waggsmap">WaggMap</Link></li>
-                      <li className="nav-item nav-link"><Link to="/waggDates">WaggDates</Link></li>
-                      <li className="nav-item nav-link"><Link to="/search">WaggSearch</Link></li>
-                      <li className="nav-item nav-link"><Link to="/events">WaggEvents</Link></li>
-                      <li className="nav-item nav-link"><Link to="/breeding">WaggMates</Link></li>
-                      <li className="nav-item nav-link"><Link to="/login">Login</Link></li>
+                      <li className="nav-item nav-link"><Link to="/waggsmap" style={{color: 'white'}}>WaggMap</Link></li>
+                      <li className="nav-item nav-link"><Link to="/waggDates" style={{color: 'white'}}>WaggDates</Link></li>
+                      <li className="nav-item nav-link"><Link to="/search" style={{color: 'white'}}>WaggSearch</Link></li>
+                      <li className="nav-item nav-link"><Link to="/events" style={{color: 'white'}}>WaggEvents</Link></li>
+                      <li className="nav-item nav-link"><Link to="/breeding" style={{color: 'white'}}>WaggMates</Link></li>
+                      <li className="nav-item nav-link"><Link to="/login" style={{color: 'white'}}>Login</Link></li>
                     </ul>
-                    <form className="form-inline">
-                        <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"/>
-                    </form>
                 </div>
             </div>
         </nav>
-
-
-
-
 
 
           {/* Here we will deploy the sub components Search or Saved */}

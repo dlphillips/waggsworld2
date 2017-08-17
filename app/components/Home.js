@@ -1,6 +1,6 @@
 // Include React as a dependency
 var React = require("react");
-
+var Link = require("react-router").Link;
 // Create the Search component
 var Home = React.createClass({
 
@@ -36,13 +36,13 @@ var Home = React.createClass({
                     <div className="flex-center animated fadeIn">
                         <ul>
                             <li>
-                                <h1 className="h1-responsive">Material Design for Bootstrap 4</h1></li>
-                            <li>
-                                <p>The most powerful and free UI KIT for Bootstrap</p>
+                                <h1 className="h3-responsive" style={{color: '#e8d071', fontWeight: 'bolder', fontSize: '200%'}}>Welcome to</h1>
                             </li>
                             <li>
-                                <a target="_blank" href="https://mdbootstrap.com/getting-started/" className="btn btn-primary btn-lg" rel="nofollow">Sign up!</a>
-                                <a target="_blank" href="https://mdbootstrap.com/material-design-for-bootstrap/" className="btn btn-default btn-lg" rel="nofollow">Learn more</a>
+                                <h1 className="h1-responsive" style={{color: '#e8d071', fontWeight: 'bolder', fontSize: '500%', textShadow: '0.05em 0.05em gray'}}>WaggsWorld!</h1>
+                            </li>
+                            <li>
+                                <p></p>
                             </li>
                         </ul>
                     </div>
@@ -67,13 +67,10 @@ var Home = React.createClass({
                     <div className="flex-center animated fadeInDown">
                         <ul>
                             <li>
-                                <h1 className="h1-responsive">Lots of tutorials at your disposal</h1>
+                                <h1 className="h1-responsive" style={{color: '#000', textShadow: '0.05em 0.05em white', fontWeight: 'bolder'}}>Search for businesses & services in your neighborhood!</h1>
                             </li>
                             <li>
-                                <p>And all of them are FREE!</p>
-                            </li>
-                            <li>
-                                <a target="_blank" href="https://mdbootstrap.com/bootstrap-tutorial/" className="btn btn-primary btn-lg" rel="nofollow">Start learning</a>
+                                <span className="btn btn-primary btn-lg"><Link to="/search" style={{color: 'white'}}>Search Now</Link></span>
                             </li>
                         </ul>
                     </div>
@@ -98,12 +95,10 @@ var Home = React.createClass({
                     <div className="flex-center animated fadeInDown">
                         <ul>
                             <li>
-                                <h1 className="h1-responsive">Visit our support forum</h1></li>
-                            <li>
-                                <p>Our community can help you with any question</p>
+                                <h1 className="h1-responsive" style={{color: '#824018', textShadow: '0.05em 0.05em white', fontWeight: 'bolder'}}>Check out upcoming events!</h1>
                             </li>
                             <li>
-                                <a target="_blank" href="https://mdbootstrap.com/forums/forum/support/" className="btn btn-default btn-lg" rel="nofollow">Support forum</a>
+                                <span className="btn btn-primary btn-lg"><Link to="/events" style={{color: 'white'}}>WaggEvents</Link></span>
                             </li>
                         </ul>
                     </div>
