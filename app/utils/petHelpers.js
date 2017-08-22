@@ -20,7 +20,7 @@ var petHelpers = {
 
 // http://api.petfinder.com/pet.find?format=json&key=3a62ece31719a64dcf6726980917d7ad&animal=dog&location=94089&age=senior&count=10
 
-    return axios.get("http://api.petfinder.com/pet.find?format=json",{
+    return axios.get("https://api.petfinder.com/pet.find?format=json",{
 	    params: {
 	      key: 'a6552e2a7dd2087fa0fb4104d446cb19',
 	      animal: 'dog',
