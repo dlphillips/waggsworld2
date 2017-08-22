@@ -8,6 +8,8 @@ var Results = require("./search/Results");
 var mapHelpers = require("../utils/mapHelpers");
 
 const imgStyle = {
+  marginTop: "80px",
+  marginBottom: "20px",
   height: "50%",
   width: "50%"
 };

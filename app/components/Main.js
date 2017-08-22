@@ -20,12 +20,11 @@ var Main = React.createClass({
                       </button>
                       <div className="collapse navbar-collapse" id="navbarSupportedContent">
                           <ul className="navbar-nav mr-auto">
-                              <li className="nav-item"><Link className="nav-link" to="/waggsmap" style={{color: 'white'}}>Map</Link></li>
                               <li className="nav-item"><Link className="nav-link" to="/waggDates" style={{color: 'white'}}>Dates</Link></li>
                               <li className="nav-item"><Link className="nav-link" to="/search" style={{color: 'white'}}>Search</Link></li>
                               <li className="nav-item"><Link className="nav-link" to="/events" style={{color: 'white'}}>Events</Link></li>
-                              <li className="nav-item"><Link className="nav-link" to="/breeding" style={{color: 'white'}}>Breeding</Link></li>
-                              <li className="nav-item"><Link className="nav-link" to="/login" style={{color: 'white'}}>Login</Link></li>                              
+                              <li className="nav-item"><Link className="nav-link" to="/petfinder" style={{color: 'white'}}>PetFinder</Link></li>
+                              <li className="nav-item"><Link className="nav-link" to="/waggsmap" style={{color: 'white'}}>Map</Link></li>
                           </ul>      
                       </div>
                   </div>

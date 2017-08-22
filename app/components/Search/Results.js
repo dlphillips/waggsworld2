@@ -40,11 +40,6 @@ var Results = React.createClass({
                 <a href={mapData.properties.url} rel="noopener noreferrer" target="_blank">
                   <button className="btn btn-default ">View on Yelp!</button>
                 </a>
-
-                {/*
-                  By using an arrow function callback to wrap this.handleClick,
-                  we can pass in an article as an argument
-                */}
               </span>
             </h3>
             <p>{mapData.properties.location}</p>
@@ -86,7 +81,6 @@ var Results = React.createClass({
         </div>
       </div>
     );
-
 
   },
 
