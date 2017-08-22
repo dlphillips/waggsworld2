@@ -11,14 +11,10 @@ class Events extends React.Component{
 
     render(){
         return (
-            <div className="main-container">
+            <div className="main-container container">
                 <div className="row">
                     <section id="blog" className="section">
-                        <div className="container">
-                            <div className="title text-center">
-                                <h2 className="text-uppercase">Events</h2>
-                                <p>Check out these local dog events!</p>
-                            </div>
+
                         <div id="my_news" className="mrg_top80 row-eq-height">
                             <div className="row">
                                 <Event/>
@@ -26,7 +22,7 @@ class Events extends React.Component{
                                 <Event/>
                                 <Event/>
                             </div>
-                        </div>
+
                         </div>
                     </section>
                 </div>

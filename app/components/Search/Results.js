@@ -69,12 +69,12 @@ var Results = React.createClass({
           <div className="col-lg-12">
             <div className="panel panel-primary">
               <div className="panel-heading">
-                <h1 className="panel-title">
+                <h3 className="panel-title text-center">
                   <strong>
                     <i className="fa fa-paw"></i>
                     Results
                   </strong>
-                </h1>
+                </h3>
               </div>
               <div className="panel-body">
                 <ul className="list-group">

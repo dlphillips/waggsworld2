@@ -36,9 +36,11 @@ var Search = React.createClass({
   // Render the component. Note how we deploy both the Query and the Results Components
   render: function() {
     return (
-      <div className="main-container">
-        <div className="img_news"> <img style={imgStyle} src={"../img/dog-grooming.jpg"} alt="Blog Image"/> </div>
-        <h3><center>Find dog bars and services close to you!</center></h3>
+      <div className="main-container container card">
+        <div className="img_news text-center"> <img style={imgStyle} src={"../img/dog-grooming.jpg"} alt="Blog Image"/> </div>
+        <div className="text-center">
+            <h2>Find dog bars and services close to you!</h2>
+        </div>
         {/* Note how we pass the setQuery function to enable Query to perform searches */}
         <Query updateSearch={this.setQuery} />
         {/* Note how we pass in the results into this component */}

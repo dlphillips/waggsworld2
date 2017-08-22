@@ -2,8 +2,8 @@
 var React = require("react");
 
 var btnStyle = {
-  backgroundColor: "#fff",
-  color: "#red"
+    backgroundColor: "#fff",
+    color: "#red"
 };
 
 // Query Component Declaration
@@ -40,14 +40,15 @@ var Query = React.createClass({
 
     mapMe: function(event) {
         event.preventDefault();
-        let self = this; 
+        let self = this;
         navigator.geolocation.getCurrentPosition(function(position) {
-            self.setState({ fLat: position.coords.latitude, fLon: position.coords.longitude }); },
-            (error) => alert(error.message) );
-            btnStyle = {
-               backgroundColor: "green",
-               color: "#fff"
-            };
+                self.setState({ fLat: position.coords.latitude, fLon: position.coords.longitude });
+            },
+            (error) => alert(error.message));
+        btnStyle = {
+            backgroundColor: "green",
+            color: "#fff"
+        };
     },
 
     // Here we render the Query component
@@ -56,79 +57,83 @@ var Query = React.createClass({
         return (
             <div className="main-container">
 
-        <div className="row">
-          <div className="col-lg-12">
+                <div className="row">
+                  <div className="col-lg-12">
+                        <form onSubmit={this.handleSubmit}>
+                            <div className="row">
+                                <div className="col-lg-4 text-center card">
+                                     <center><span className="fa-stack fa-3x">
+                                          <i className="fa fa-circle fa-stack-2x"></i>
+                                          <strong className="fa-stack-1x text-success">1</strong>
+                                     </span></center>
+                                    <h4><strong>Your location</strong></h4>
 
-            <div className="panel panel-primary">
-              <div className="panel-heading">
-                <h1 className="panel-title">
-                  <strong>
-                    <i className="fa fa-paw" aria-hidden="true">Search</i> 
-                  </strong>
-                </h1>
-              </div>
-              <div className="panel-body">
+                                    <button onClick={this.mapMe}
+                                      className="form-control"
+                                      id="end"
+                                      style={btnStyle}
+                                      required
+                                    >
+                                      Click to find your location
+                                    </button>
+                                </div>
+                                <div className="col-lg-4 text-center card">
+                                    <div className="dropdown">
+                                      <center><span className="fa-stack fa-3x">
+                                          <i className="fa fa-circle fa-stack-2x"></i>
+                                          <strong className="fa-stack-1x text-success">2</strong>
+                                     </span></center>
+                                       <h4><strong>What can we help you find?</strong></h4>
+                                       <select id="search" defaultValue={this.state.search} 
+                                       onChange={this.handleChange}
+                                       required
+                                       >
+                                          <option></option>
+                                          <option value="bars">Dog Friendly Bars</option>
+                                          <option value="groomers">Groomers</option>
+                                          <option value="hospitals">Pet Hospitals</option>
+                                          <option value="vets">Veterinarians</option>
+                                          <option value="boarders">Boarding</option>
+                                        </select>
+                                    </div>     
+                                </div>
+                                <div className="col-lg-4 text-center card">
+                                    <center><span className="fa-stack fa-3x">
+                                          <i className="fa fa-circle fa-stack-2x"></i>
+                                          <strong className="fa-stack-1x text-success">3</strong>
+                                    </span></center>
+                                    <div className="dropdown">
+                                    <h4><strong>Select a search radius (miles)</strong></h4>
+                                       <select id="start" defaultValue={this.state.start} 
+                                       onChange={this.handleChange}
+                                       required
+                                       >
+                                          <option></option>
+                                          <option value="1">1</option>
+                                          <option value="2">2</option>
+                                          <option value="3">3</option>
+                                          <option value="4">4</option>
+                                          <option value="5">5</option>
+                                        </select>
+                                    </div>     
+                                </div>
+                            </div>
+                           <div className="text-center">
+                            <button
+                              type="submit"
+                              className="btn btn-default btn-sm"
 
-                {/* Note how we associate the text-box inputs with the state values */}
-                <form onSubmit={this.handleSubmit}>
-                    <h4><strong>Your location</strong></h4>
+                            >
+                              <h4>Submit</h4>
+                            </button>
+                          </div>
+                        </form>
+                      </div>
 
-                    <button onClick={this.mapMe}
-                      className="form-control"
-                      id="end"
-                      style={btnStyle}
-                      required
-                    >
-                      Click to find your location
-                    </button>
 
-                    <div className="dropdown">
-                       <h4><strong>What can we help you find?</strong></h4>
-                       <select id="search" defaultValue={this.state.search} 
-                       onChange={this.handleChange}
-                       required
-                       >
-                          <option></option>
-                          <option value="bars">Dog Friendly Bars</option>
-                          <option value="groomers">Groomers</option>
-                          <option value="hospitals">Pet Hospitals</option>
-                          <option value="vets">Veterinarians</option>
-                          <option value="boarders">Boarding</option>
-                        </select>
-                    </div>     
-
-                    <div className="dropdown">
-                    <h4><strong>Select a search radius (miles)</strong></h4>
-                       <select id="start" defaultValue={this.state.start} 
-                       onChange={this.handleChange}
-                       required
-                       >
-                          <option></option>
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                          <option value="5">5</option>
-                        </select>
-                    </div>     
-
-                  {/* Here we create the onClick event that triggers the HandleSubmit */}
-                  <div className="pull-right">
-                    <button
-                      type="submit"
-                      className="btn btn-default"
-                    >
-                      <h4>Submit</h4>
-                    </button>
                   </div>
-                </form>
+                </div>
 
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
         );
     }
 });

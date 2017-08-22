@@ -26,7 +26,7 @@ class Event extends React.Component{
             console.log(res.data.events[i]);
             this.setState({
                 name: res.data.events[i].name.text,
-                desc: res.data.events[i].description.text,
+                desc: res.data.events[i].description.text.substring(0, 300)+' . . .',
                 url: res.data.events[i].url,
                 imgUrl: res.data.events[i].logo.original.url
             });
@@ -34,40 +34,29 @@ class Event extends React.Component{
         });
     }
 
+
 	render(){
 		return(
-			<div className="col-sm-6 col-md-6">
-            	<div className="single_news">
-                	<div className="img_news">
-                		<img src={this.state.imgUrl} alt="Blog Image" />
-                	</div>
-                    <div className="news">
-                       	<div className="topic">
-                           	<div className="title_topic">
-                                <h4><a href={this.state.url}>{this.state.name}</a></h4>
-                                <p className="date pull-left"><i className="fa fa-calendar color"></i> 26 feb 2017</p>
-                                <p className="author_name pull-left"><i className="fa fa-user color"></i> By Admin</p>
-                            </div>
-                            <div className="clearfix"></div>
-                            <p className="mrg_top20 text-muted">{this.state.desc}</p>
+            <div>
+                <div className="row mt-5 wow fadeIn" data-wow-delay="0.2s">
+                    <div className="col-lg-7">
+                        <div className="view overlay hm-white-light z-depth-1-half">
+                            <img src={this.state.imgUrl} className="img-fluid" alt=""/>
+                            <div className="mask"></div>
                         </div>
+                    </div>
 
-                        <div className="topic_info mrg_top40 text-center">
-                            <div className="col-xs-4 col-sm-4 col-md-4">
-                               	<p className="like"><i className="fa fa-heart"></i> 30</p>
-                            </div>
-                            <div className="col-xs-4 col-sm-4 col-md-4">
-                                <p className="comment"><i className="fa fa-comment"></i> 60</p>
-                            </div>
-                            <div className="col-xs-4 col-sm-4 col-md-4">
-                                <p className="viwes"><i className="fa fa-eye"></i> 190</p>
-                            </div>
+                    <div className="col-lg-5">
+                        <a href={this.state.url}><h2 className="post-title font-bold">{this.state.name}</h2></a>
+                        <p className="my-4">{this.state.desc}</p>
+                        <div className="read-more">
+                            <a href={this.state.url} className="btn btn-primary">Learn more</a>
                         </div>
-                            <div className="clearfix"></div>
                     </div>
                 </div>
+                <hr class="extra-margin my-5"/>
             </div>
-			);
+		);
 	}
 }
 
