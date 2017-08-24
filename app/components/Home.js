@@ -98,7 +98,33 @@ var Home = React.createClass({
                                 <h1 className="h1-responsive" style={{color: '#824018', textShadow: '0.05em 0.05em white', fontWeight: 'bolder'}}>Check out upcoming events!</h1>
                             </li>
                             <li>
-                                <span className="btn btn-primary btn-lg"><Link to="/events" style={{color: 'white'}}>WaggEvents</Link></span>
+                                <span className="btn btn-primary btn-lg"><Link to="/events" style={{color: 'white'}}>Events</Link></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+ 
+            </div>
+
+            <div className="carousel-item">
+
+                <div className="view hm-black-light">
+
+                    <video className="video-full" autoPlay loop>
+                        <source src="img/mp4/dog4.mp4" type="video/mp4" />
+                    </video>
+                    <div className="mask"></div>
+                </div>
+
+
+                <div className="carousel-caption">
+                    <div className="flex-center animated fadeInDown">
+                        <ul>
+                            <li>
+                                <h1 className="h1-responsive" style={{color: '#824018', textShadow: '0.05em 0.05em white', fontWeight: 'bolder'}}>Find your new best friend!</h1>
+                            </li>
+                            <li>
+                                <span className="btn btn-primary btn-lg"><Link to="/petfinder" style={{color: 'white'}}>PetFinder</Link></span>
                             </li>
                         </ul>
                     </div>
