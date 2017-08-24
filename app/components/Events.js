@@ -1,36 +1,56 @@
-import React from 'react';
-import { render } from 'react-dom';
+// Include React as a dependency
+var React = require("react");
 
-import Event from "./Children/event";
+// Include the Query and Results components
+var Query = require("./events/Query");
+var Results = require("./events/Results");
 
-class Events extends React.Component{
+var eventHelpers = require("../utils/eventHelpers");
 
-    constructor(){
-        super();
-    }
+const imgStyle = {
+  marginTop: "80px",
+  marginBottom: "20px",
+  height: "50%",
+  width: "50%"
+};
 
-    render(){
-        return (
-            <div className="main-container container">
-                <div className="row">
-                    <section id="blog" className="section">
+// Create the Search component
+var Search = React.createClass({
 
-                        <div id="my_news" className="mrg_top80 row-eq-height">
-                            <div className="row">
-                                <Event/>
-                                <Event/>
-                                <Event/>
-                                <Event/>
-                            </div>
+  // Here we set the initial state variables
+  // (this allows us to propagate the variables for maniuplation by the children components
+  // Also note the "resuls" state. This will be where we hold the data from our results
+  getInitialState: function() {
+    return {
+      results: {}
+    };
+  },
 
-                        </div>
-                    </section>
-                </div>
-            </div>
+    // This function will be passed down into child components so they can change the "parent"
+  // i.e we will pass this method to the query component that way it can change the main component
+  // to perform a new search
+  setQuery: function() {
+    eventHelpers.getEvents().then(function(data) {
+      this.setState({ results: { data: data } });
+    }.bind(this));
+  },
+
+  // Render the component. Note how we deploy both the Query and the Results Components
+  render: function() {
+    return (
+      <div className="main-container container card">
+        <div className="img_news text-center"> <img style={imgStyle} src={"../img/alvin-balemesa-105751.jpg"} alt="Blog Image"/> </div>
+        <div className="text-center">
+            <h2>Here are the latest dog events!</h2>
+        </div>
+        {/* Note how we pass the setQuery function to enable Query to perform searches */}
+        <Query updateSearch={this.setQuery} />
+        {/* Note how we pass in the results into this component */}
+        <Results results={this.state.results} />
+      </div>
     );
-    }
-}
-
+  }
+});
 
 // Export the module back to the route
-module.exports = Events;
+module.exports = Search;

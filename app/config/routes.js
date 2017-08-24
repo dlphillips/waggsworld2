@@ -20,15 +20,10 @@ var browserHistory = router.browserHistory;
 // Reference the high-level components
 var Main = require("../components/Main");
 var Home = require("../components/Home");
-
 var Search = require("../components/Search");
-var Saved = require("../components/Saved");
-
-var Services = require("../components/Services");
 var DogMap = require("../components/DogMap");
 var Events = require("../components/Events");
 var Breeding = require("../components/Breeding");
-var WaggDates = require("../components/WaggDates");
 var PetFinder = require("../components/PetFinder");
 var Registration = require("../components/Registration");
 var Login = require("../components/Login");
@@ -42,12 +37,9 @@ module.exports = (
 
       {/* If user selects Search or Saved show the appropriate component */}
       <Route path="Search" component={Search} />
-      <Route path="Saved" component={Saved} />
-      <Route path="Services" component={Services} />
       <Route path="WaggsMap" component={WaggsMap} />
       <Route path="Events" component={Events} />
       <Route path="Breeding" component={Breeding} />
-      <Route path="WaggDates" component={WaggDates} />
       <Route path="PetFinder" component={PetFinder} />
       <Route path="Registration" component={Registration} />
       <Route path="Login" component={Login} />

@@ -188,6 +188,15 @@ app.get('/api/petfinder', function(req, res, next) {
     });
 });
 
+app.get('/api/events', function(req, res, next) {
+    var getEvents='https://www.eventbriteapi.com/v3/events/search/?q=dog+events&sort_by=distance&location.within=15mi&location.latitude=35.224796&location.longitude=-80.821300&token=LFNPFUM45EHXK6JWWIPM';    
+    request(getEvents, function (error, response, body) {
+      if (!error && response.statusCode == 200) {
+        // console.log(body);
+        res.send(body);
+      }
+    });
+});
 
 // Any non API GET routes will be directed to our React App and handled by React Router
 app.get("*", function (req, res) {

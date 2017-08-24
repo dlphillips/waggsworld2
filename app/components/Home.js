@@ -15,6 +15,7 @@ var Home = React.createClass({
             <li data-target="#video-carousel-example2" data-slide-to="0" className="active"></li>
             <li data-target="#video-carousel-example2" data-slide-to="1"></li>
             <li data-target="#video-carousel-example2" data-slide-to="2"></li>
+            <li data-target="#video-carousel-example2" data-slide-to="3"></li>
         </ol>
 
 

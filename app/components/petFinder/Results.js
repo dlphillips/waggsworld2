@@ -14,44 +14,31 @@ var Results = React.createClass({
     };
   },
 
-  // This code handles the sending of the search terms to the parent Search component
-  handleClick: function(item) {
-    console.log("CLICKED");
-    console.log(item);
-
-    helpers.postSaved(item.headline.main, item.pub_date, item.web_url).then(function() {
-      console.log(item.web_url);
-    });
-  },
-
-
-
   renderArticles: function() {
     return this.props.results.data.data.elements.map(function(mapData, index) {
       return (
         <div key={index}>
-                <div className="row mt-5 wow fadeIn" data-wow-delay="0.2s">
-                    <div className="col-lg-5">
-                        <div className="view overlay hm-white-light z-depth-1-half img-center">
-                            <img src={mapData.elements[14].elements[0].elements[2].elements[0].text} className="img-fluid" alt=""/>
-                            <div className="mask"></div>
-                        </div>
-                    </div>
-
-                    <div className="col-lg-7">
-                        <h2 className="post-title font-bold">{mapData.elements[3].elements[0].text}</h2>
-                        <p className="my-4">{mapData.elements[11].elements[0].cdata}</p>
-                        <div className="read-more">
-                            <strong>Contact the shelter about {mapData.elements[3].elements[0].text} at {mapData.elements[15].elements[7].elements[0].text}.</strong>
-                        </div>
+            <div className="row mt-5 wow fadeIn" data-wow-delay="0.2s">
+                <div className="col-lg-5">
+                    <div className="view overlay hm-white-light z-depth-1-half img-center">
+                        <img src={mapData.elements[14].elements[0].elements[2].elements[0].text} className="img-fluid" alt=""/>
+                        <div className="mask"></div>
                     </div>
                 </div>
-                <hr class="extra-margin my-5"/>
+
+                <div className="col-lg-7">
+                    <h2 className="post-title font-bold">{mapData.elements[3].elements[0].text}</h2>
+                    <p className="my-4">{mapData.elements[11].elements[0].cdata}</p>
+                    <div className="read-more">
+                        <strong>Contact the shelter about {mapData.elements[3].elements[0].text} at {mapData.elements[15].elements[7].elements[0].text}.</strong>
+                    </div>
+                </div>
+            </div>
+            <hr className="extra-margin my-5"/>
         </div>
       );
     }.bind(this));
 },
-
 
   renderContainer: function() {
     return (
