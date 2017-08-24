@@ -12,10 +12,7 @@ var Query = React.createClass({
     // Here we set initial variables for the component to be blanks
     getInitialState: function() {
         return {
-            search: "",
-            start: "",
-            fLon: 0,
-            fLat: 0
+            search: ""
         };
     },
 
@@ -61,76 +58,27 @@ var Query = React.createClass({
                   <div className="col-lg-12">
                         <form onSubmit={this.handleSubmit}>
                             <div className="row">
-                                <div className="col-lg-4 text-center card">
-                                     <center><span className="fa-stack fa-3x">
-                                          <i className="fa fa-circle fa-stack-2x"></i>
-                                          <strong className="fa-stack-1x text-success">1</strong>
-                                     </span></center>
-                                    <h4><strong>Your location</strong></h4>
-
-                                    <button onClick={this.mapMe}
-                                      className="form-control"
-                                      id="end"
-                                      style={btnStyle}
-                                      required
-                                    >
-                                      Click to find your location
-                                    </button>
-                                </div>
-                                <div className="col-lg-4 text-center card">
-                                    <div className="dropdown">
-                                      <center><span className="fa-stack fa-3x">
-                                          <i className="fa fa-circle fa-stack-2x"></i>
-                                          <strong className="fa-stack-1x text-success">2</strong>
-                                     </span></center>
-                                       <h4><strong>What can we help you find?</strong></h4>
-                                       <select id="search" defaultValue={this.state.search} 
-                                       onChange={this.handleChange}
-                                       required
-                                       >
-                                          <option></option>
-                                          <option value="bars">Dog Friendly Bars</option>
-                                          <option value="groomers">Groomers</option>
-                                          <option value="hospitals">Pet Hospitals</option>
-                                          <option value="vets">Veterinarians</option>
-                                          <option value="boarders">Boarding</option>
-                                        </select>
-                                    </div>     
-                                </div>
-                                <div className="col-lg-4 text-center card">
-                                    <center><span className="fa-stack fa-3x">
-                                          <i className="fa fa-circle fa-stack-2x"></i>
-                                          <strong className="fa-stack-1x text-success">3</strong>
-                                    </span></center>
-                                    <div className="dropdown">
-                                    <h4><strong>Select a search radius (miles)</strong></h4>
-                                       <select id="start" defaultValue={this.state.start} 
-                                       onChange={this.handleChange}
-                                       required
-                                       >
-                                          <option></option>
-                                          <option value="1">1</option>
-                                          <option value="2">2</option>
-                                          <option value="3">3</option>
-                                          <option value="4">4</option>
-                                          <option value="5">5</option>
-                                        </select>
-                                    </div>     
+                                <div className="col-lg-12 text-center">
+                                  <h4>
+                                    <i className="fa fa-paw"></i>
+                                  </h4>
+                                  <h4><strong>Enter your Zip Code or City,State</strong></h4>
+                                   <input type="text" className="text-center" id="search" defaultValue={this.state.search} 
+                                   onChange={this.handleChange}
+                                   required
+                                   />
                                 </div>
                             </div>
                            <div className="text-center">
                             <button
                               type="submit"
                               className="btn btn-default btn-sm"
-
                             >
                               <h4>Submit</h4>
                             </button>
                           </div>
                         </form>
                       </div>
-
-
                   </div>
                 </div>
 

@@ -192,16 +192,6 @@ app.get('/api/petfinder', function(req, res, next) {
       if (!error && response.statusCode == 200) {
         // console.log(body);
         var bodyJson = JSON.parse(convert.xml2json(body, {compact: false, spaces: 4}));
-
-        console.log('Name: '+ bodyJson.elements[0].elements[2].elements[0].elements[3].elements[0].text); //dog's name
-        console.log('Age: ' + bodyJson.elements[0].elements[2].elements[0].elements[7].elements[0].text); //age
-        console.log('Desc: ' + bodyJson.elements[0].elements[2].elements[0].elements[11].elements[0].cdata); //desc
-        console.log('Image: ' + bodyJson.elements[0].elements[2].elements[0].elements[14].elements[0].elements[2].elements[0].text); //image
-        console.log('Email: ' + bodyJson.elements[0].elements[2].elements[0].elements[15].elements[7].elements[0].text); //email
-        console.log('Phone: ' + bodyJson.elements[0].elements[2].elements[0].elements[15].elements[5].elements[0].text); //phone
-
-        console.log(bodyJson.elements[0].elements[2].elements[0].elements[15]); //agency
-
         res.send(bodyJson.elements[0].elements[2]);
       }
     });

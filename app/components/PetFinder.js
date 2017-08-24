@@ -42,7 +42,7 @@ var Search = React.createClass({
       <div className="main-container container card">
         <div className="img_news text-center"> <img style={imgStyle} src={"../img/justin-veenema-156591.jpg"} alt="Blog Image"/> </div>
         <div className="text-center">
-            <h2>Find your new best friend here!</h2>
+            <h2>Find your new best friend!</h2>
         </div>
         {/* Note how we pass the setQuery function to enable Query to perform searches */}
         <Query updateSearch={this.setQuery} />

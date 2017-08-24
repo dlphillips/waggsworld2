@@ -24,38 +24,38 @@ var Results = React.createClass({
     });
   },
 
-  // A helper method for mapping through our articles and outputting some HTML
+
+
   renderArticles: function() {
     return this.props.results.data.data.elements.map(function(mapData, index) {
       return (
         <div key={index}>
-            <li className="list-group-item">
-              <h3>
-                <span>
-                  <em>{mapData.elements[3].elements[0].text}</em>
-                </span>
-                <span className="pull-right">
-                  <img src={mapData.elements[14].elements[0].elements[2].elements[0].text}/> 
-                </span>
-              </h3>
-              <p>Description: {mapData.elements[11].elements[0].cdata}</p>
-              <p>Age: {mapData.elements[7].elements[0].text}</p>
+                <div className="row mt-5 wow fadeIn" data-wow-delay="0.2s">
+                    <div className="col-lg-5">
+                        <div className="view overlay hm-white-light z-depth-1-half img-center">
+                            <img src={mapData.elements[14].elements[0].elements[2].elements[0].text} className="img-fluid" alt=""/>
+                            <div className="mask"></div>
+                        </div>
+                    </div>
 
-              <p>Email: {mapData.elements[15].elements[7].elements[0].text}</p>
-            </li>
+                    <div className="col-lg-7">
+                        <h2 className="post-title font-bold">{mapData.elements[3].elements[0].text}</h2>
+                        <p className="my-4">{mapData.elements[11].elements[0].cdata}</p>
+                        <div className="read-more">
+                            <strong>Contact the shelter about {mapData.elements[3].elements[0].text} at {mapData.elements[15].elements[7].elements[0].text}.</strong>
+                        </div>
+                    </div>
+                </div>
+                <hr class="extra-margin my-5"/>
         </div>
       );
     }.bind(this));
+},
 
-  },
 
-  // A helper method for rendering a container to hold all of our articles
   renderContainer: function() {
     return (
-      <div className="main-cont
-
-
-      ainer">
+      <div className="main-container">
         <div className="row">
           <div className="col-lg-12">
             <div className="panel panel-primary">
@@ -97,7 +97,7 @@ var Results = React.createClass({
         </li>
       );
     }
-    // If we have articles, return this.renderContainer() which in turn, returns all the articles
+
     return this.renderContainer();
   }
 });
