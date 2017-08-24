@@ -12,15 +12,12 @@ var petHelpers = {
 
   // **** NEW ROUTES ****//
   // This will return any dog friendly bars from our database
-  getPetData: function() {
+  getPetData: function(search) {
 
     return axios.get("/api/petfinder",{
-      // params: {
-      //   model: search,
-      //   start: start,
-      //   lon: lon,
-      //   lat: lat
-      // }
+      params: {
+        location: search
+      }
     })
       .then(function(results) {
         // console.log(results);
@@ -32,4 +29,3 @@ var petHelpers = {
 
 // We export the helpers function
 module.exports = petHelpers;
-

@@ -9,8 +9,6 @@ var mapHelpers = {
   getMapData: function(search, start, lon, lat) {
     // var formattedTerm = term.trim();
 
-    console.log(search, start, lon, lat);
-
     return axios.get("/api/getmapdata",{
 	    params: {
 	      model: search,
@@ -20,7 +18,6 @@ var mapHelpers = {
 	    }
     })
       .then(function(results) {
-      	console.log(results);
         return results.data;
       });
 

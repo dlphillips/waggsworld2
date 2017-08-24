@@ -31,21 +31,8 @@ var Query = React.createClass({
     // This code handles the sending of the search terms to the parent Search component
     handleSubmit: function(event) {
         event.preventDefault();
-        this.props.updateSearch(this.state.search, this.state.start, this.state.fLon, this.state.fLat);
-        // this.props.updateSearch(this.state.search, this.state.start, this.state.fLon, this.state.fLat);
-    },
-
-    mapMe: function(event) {
-        event.preventDefault();
-        let self = this;
-        navigator.geolocation.getCurrentPosition(function(position) {
-                self.setState({ fLat: position.coords.latitude, fLon: position.coords.longitude });
-            },
-            (error) => alert(error.message));
-        btnStyle = {
-            backgroundColor: "green",
-            color: "#fff"
-        };
+        console.log(this.state.search);
+        this.props.updateSearch(this.state.search);
     },
 
     // Here we render the Query component

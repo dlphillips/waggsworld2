@@ -176,19 +176,10 @@ app.get("/api/getmapdata", function (req, res) {
      }    
 });
 
-// app.get("/api/petfinder", function (req, response) {
-//     axios.get('https://api.petfinder.com/pet.find?format=json&key=a6552e2a7dd2087fa0fb4104d446cb19&animal=dog&location=Charlotte,NC&count=10&callback=?')
-//       .then(function (data) {
-//         return data;
-//       })
-//       .catch(function (error) {
-//         console.log(error);
-//       });
-//     console.log(response);
-// });
 
 app.get('/api/petfinder', function(req, res, next) {
-    request('https://api.petfinder.com/pet.find?format=xml&key=a6552e2a7dd2087fa0fb4104d446cb19&animal=dog&location=Charlotte,NC&count=10&callback=?', function (error, response, body) {
+    var getPets='https://api.petfinder.com/pet.find?format=xml&key=a6552e2a7dd2087fa0fb4104d446cb19&animal=dog&location='+req.query.location+'&count=10&callback=?';    
+    request(getPets, function (error, response, body) {
       if (!error && response.statusCode == 200) {
         // console.log(body);
         var bodyJson = JSON.parse(convert.xml2json(body, {compact: false, spaces: 4}));
