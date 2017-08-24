@@ -8,7 +8,10 @@
     "cookie-parser": "^1.4.3",
     "cookie-session": "^2.0.0-beta.2",
     "express": "^4.13.4",
+    "jquery": "^3.2.1",
+    "jsdom": "^11.2.0",
     "leaflet": "^1.1.0",
+    "lodash": "^4.17.4",
     "mongoose": "^4.4.20",
     "morgan": "^1.7.0",
     "passport": "^0.3.2",
@@ -19,7 +22,8 @@
     "react-leaflet": "^1.4.1",
     "react-redirect": "^1.0.0",
     "react-router": "^2.4.1",
-    "socket.io": "^2.0.3"
+    "socket.io": "^2.0.3",
+    "xml-js": "^1.4.1"
   },
   "devDependencies": {
     "axios": "^0.12.0",

@@ -26,37 +26,25 @@ var Results = React.createClass({
 
   // A helper method for mapping through our articles and outputting some HTML
   renderArticles: function() {
-    return this.props.results.data.map(function(mapData, index) {
-
-      // Each article thus reperesents a list group item with a known index
+    return this.props.results.data.data.elements.map(function(mapData, index) {
       return (
         <div key={index}>
-          <li className="list-group-item">
-            <h3>
-              <span>
-                <em>{mapData.properties.name}</em>
-              </span>
-              <span className="btn-group pull-right">
-                <a href={mapData.properties.url} rel="noopener noreferrer" target="_blank">
-                  <button className="btn btn-default ">View on Yelp!</button>
-                </a>
+            <li className="list-group-item">
+              <h3>
+                <span>
+                  <em>{mapData.elements[3].elements[0].text}</em>
+                </span>
+                <span className="pull-right">
+                  <img src={mapData.elements[14].elements[0].elements[2].elements[0].text}/> 
+                </span>
+              </h3>
+              <p>Description: {mapData.elements[11].elements[0].cdata}</p>
+              <p>Age: {mapData.elements[7].elements[0].text}</p>
 
-                {/*
-                  By using an arrow function callback to wrap this.handleClick,
-                  we can pass in an article as an argument
-                */}
-              </span>
-            </h3>
-            <p>{mapData.properties.location}</p>
-            <p>{mapData.properties.address1}</p>
-            <p>{mapData.properties.city}, {mapData.properties.state} {mapData.properties.zip_code}</p>
-            <p>{mapData.properties.display_phone}</p>
-            <p>Yelp Rating: {mapData.properties.rating} stars</p>
-          </li>
-
+              <p>Email: {mapData.elements[15].elements[7].elements[0].text}</p>
+            </li>
         </div>
       );
-
     }.bind(this));
 
   },
@@ -64,7 +52,10 @@ var Results = React.createClass({
   // A helper method for rendering a container to hold all of our articles
   renderContainer: function() {
     return (
-      <div className="main-container">
+      <div className="main-cont
+
+
+      ainer">
         <div className="row">
           <div className="col-lg-12">
             <div className="panel panel-primary">
@@ -91,7 +82,9 @@ var Results = React.createClass({
   },
 
   render: function() {
-    console.log(this.props.results);
+    var res = this.props.results;
+    // console.log(res);
+    // console.log(this.props.results);
     // If we have no articles, render this HTML
     if (!this.props.results.data) {
       return (

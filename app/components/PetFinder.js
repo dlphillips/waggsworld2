@@ -29,7 +29,7 @@ var Search = React.createClass({
     // This function will be passed down into child components so they can change the "parent"
   // i.e we will pass this method to the query component that way it can change the main component
   // to perform a new search
-  setQuery: function( search, newStart, fLon, fLat) {
+  setQuery: function() {
     // mapHelpers.getPetData( search, newStart, fLon, fLat).then(function(data) {
     petHelpers.getPetData().then(function(data) {
       this.setState({ results: { data: data } });

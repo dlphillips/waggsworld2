@@ -5,6 +5,9 @@ var logger = require("morgan");
 var mongoose = require("mongoose");
 var cookieParser = require('cookie-parser');
 var session = require('cookie-session');
+var axios = require("axios");
+var request = require('request');
+var convert = require('xml-js');
 
 // Require Schemas
 var User = require("./server/models/user");
@@ -173,6 +176,38 @@ app.get("/api/getmapdata", function (req, res) {
      }    
 });
 
+// app.get("/api/petfinder", function (req, response) {
+//     axios.get('https://api.petfinder.com/pet.find?format=json&key=a6552e2a7dd2087fa0fb4104d446cb19&animal=dog&location=Charlotte,NC&count=10&callback=?')
+//       .then(function (data) {
+//         return data;
+//       })
+//       .catch(function (error) {
+//         console.log(error);
+//       });
+//     console.log(response);
+// });
+
+app.get('/api/petfinder', function(req, res, next) {
+    request('https://api.petfinder.com/pet.find?format=xml&key=a6552e2a7dd2087fa0fb4104d446cb19&animal=dog&location=Charlotte,NC&count=10&callback=?', function (error, response, body) {
+      if (!error && response.statusCode == 200) {
+        // console.log(body);
+        var bodyJson = JSON.parse(convert.xml2json(body, {compact: false, spaces: 4}));
+
+        console.log('Name: '+ bodyJson.elements[0].elements[2].elements[0].elements[3].elements[0].text); //dog's name
+        console.log('Age: ' + bodyJson.elements[0].elements[2].elements[0].elements[7].elements[0].text); //age
+        console.log('Desc: ' + bodyJson.elements[0].elements[2].elements[0].elements[11].elements[0].cdata); //desc
+        console.log('Image: ' + bodyJson.elements[0].elements[2].elements[0].elements[14].elements[0].elements[2].elements[0].text); //image
+        console.log('Email: ' + bodyJson.elements[0].elements[2].elements[0].elements[15].elements[7].elements[0].text); //email
+        console.log('Phone: ' + bodyJson.elements[0].elements[2].elements[0].elements[15].elements[5].elements[0].text); //phone
+
+        console.log(bodyJson.elements[0].elements[2].elements[0].elements[15]); //agency
+
+        res.send(bodyJson.elements[0].elements[2]);
+      }
+    });
+});
+
+
 // Any non API GET routes will be directed to our React App and handled by React Router
 app.get("*", function (req, res) {
   res.sendFile(__dirname + "/public/index.html");
@@ -182,72 +217,12 @@ app.get("*", function (req, res) {
 // -------------------------------------------------
 
 
+
 app.listen(PORT, function () {
   console.log("App listening on PORT: " + PORT);
 });
 
 
 
-// // Route to get all saved articles
-// app.get("/api/saved", function (req, res) {
-
-//   Article.find({})
-//     .exec(function (err, doc) {
-
-//       if (err) {
-//         console.log(err);
-//       }
-//       else {
-//         res.send(doc);
-//       }
-//     });
-// });
-
-// Route to add an article to saved list
-// app.post("/api/saved", function (req, res) {
-//   var newArticle = new Article(req.body);
-
-//   console.log(req.body);
-
-//   newArticle.save(function (err, doc) {
-//     if (err) {
-//       console.log(err);
-//     }
-//     else {
-//       res.send(doc);
-//     }
-//   });
-// });
 
 
-//   if (err) {
-//     console.log('The following error occured:');
-//     console.log(err);
-//   }
-//   console.log('User ' + req.body.username + ' authenticated succesfully');
-//   res.redirect('/');
-
-// });
-
-
-
-
-
-
-// console.log(newUser);
-
-
-
-// Route to delete an article from saved list
-// app.delete("/api/saved/", function (req, res) {
-
-//   var url = req.param("url");
-
-//   Article.find({ url: url }).remove().exec(function (err) {
-//     if (err) {
-//       console.log(err);
-//     }
-//     else {
-//       res.send("Deleted");
-//     }
-//   });
