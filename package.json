@@ -13,7 +13,7 @@
     "jsdom": "^11.2.0",
     "leaflet": "^1.1.0",
     "lodash": "^4.17.4",
-    "mongoose": "^4.4.20",
+    "mongoose": "^5.8.7",
     "morgan": "^1.7.0",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
